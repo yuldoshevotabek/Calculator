@@ -6,8 +6,8 @@ const btns = document.querySelectorAll('.btn button'),
 	boluv = document.querySelector('#boluv'),
 	kvadrat = document.querySelector('.kvadrat'),
 	foiz = document.querySelector('.foiz'),
-	del = document.querySelector('#delete')
-console.log(btns)
+	del = document.querySelector('#delete'),
+	text = document.querySelector('#textt').textContent
 btns.forEach(item => {
 	item.addEventListener('click', () => {
 		const text = document.querySelector('#textt')
@@ -15,7 +15,7 @@ btns.forEach(item => {
 	})
 })
 clear.addEventListener('click', () => {
-	const text = (document.querySelector('#textt').textContent = '')
+	document.querySelector('#textt').textContent = ''
 })
 plus.addEventListener('click', () => {
 	const text = (document.querySelector('#textt').textContent += '+')
@@ -27,59 +27,14 @@ boluv.addEventListener('click', () => {
 	const text = (document.querySelector('#textt').textContent += '/')
 })
 kvadrat.addEventListener('click', () => {
-	const text = (document.querySelector('#textt').textContent += 'x')
+	const text = (document.querySelector('#textt').textContent += '*')
 })
 foiz.addEventListener('click', () => {
 	const text = (document.querySelector('#textt').textContent += '%')
 })
 teng.addEventListener('click', () => {
 	const text = document.querySelector('#textt').textContent
-	if (text.includes('+') == true) {
-		const text = document.querySelector('#textt').textContent
-		let counter = text
-			.split('+')
-			.map(Number)
-			.reduce((total, item) => {
-				return (total += item)
-			})
-		document.querySelector('#textt').innerHTML = counter
-	} else if (text.includes('-') == true) {
-		const text = document.querySelector('#textt').textContent
-		let counter = text
-			.split('-')
-			.map(Number)
-			.reduce((total, item) => {
-				return (total -= item)
-			})
-		document.querySelector('#textt').innerHTML = counter
-	} else if (text.includes('/') == true) {
-		const text = document.querySelector('#textt').textContent
-		let counter = text
-			.split('/')
-			.map(Number)
-			.reduce((total, item) => {
-				return (total /= item)
-			})
-		document.querySelector('#textt').innerHTML = counter
-	} else if (text.includes('x') == true) {
-		const text = document.querySelector('#textt').textContent
-		let counter = text
-			.split('x')
-			.map(Number)
-			.reduce((total, item) => {
-				return (total *= item)
-			})
-		document.querySelector('#textt').innerHTML = counter
-	} else if (text.includes('%') == true) {
-		const text = document.querySelector('#textt').textContent
-		let counter = text
-			.split('%')
-			.map(Number)
-			.reduce((total, item) => {
-				return (total %= item)
-			})
-		document.querySelector('#textt').innerHTML = counter
-	}
+	document.querySelector('#textt').innerHTML = eval(text)
 })
 del.addEventListener('click', () => {
 	const text = document.querySelector('#textt').textContent
