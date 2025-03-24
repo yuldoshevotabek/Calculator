@@ -10,8 +10,14 @@ const btns = document.querySelectorAll('.btn button'),
 	text = document.querySelector('#textt').textContent
 btns.forEach(item => {
 	item.addEventListener('click', () => {
-		const text = document.querySelector('#textt')
-		text.innerHTML += item.textContent
+		const text = document.querySelector('#textt').textContent
+		if (text[0] == 0) {
+			const text = document.querySelector('#textt')
+			text.innerHTML = item.textContent
+		} else {
+			const text = document.querySelector('#textt')
+			text.innerHTML += item.textContent
+		}
 	})
 })
 clear.addEventListener('click', () => {
