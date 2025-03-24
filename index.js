@@ -14,7 +14,6 @@ btns.forEach(item => {
 		if (
 			text[0] == 0 ||
 			text[0] == '+' ||
-			text[0] == '-' ||
 			text[0] == '*' ||
 			text[0] == '/' ||
 			text[0] == '%'
